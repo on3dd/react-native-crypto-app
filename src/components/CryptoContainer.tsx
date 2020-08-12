@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useFetching } from '../utils/hooks';
 import fetchCoinData from '../actions/fetchCoinData';
@@ -16,34 +16,49 @@ const CryptoContainer = () => {
       return renderSpinner();
     }
 
-    // return renderList();
+    return renderList();
   };
 
   const renderSpinner = () => {
     return (
-      <Spinner
-        visible={crypto.isFetching}
-        textContent={'Loading'}
-        textStyle={{ color: '#253145' }}
-        animation="fade"
-      />
+      <View>
+        <Spinner
+          visible={crypto.isFetching}
+          textContent={'Loading'}
+          textStyle={{ color: '#253145' }}
+          animation="fade"
+        />
+      </View>
     );
   };
 
   const renderList = () => {
-    return crypto.data.map((el, idx) => (
-      <CoinCard
-        key={idx}
-        name={el.name}
-        symbol={el.symbol}
-        current_price={el.current_price}
-        price_change_24h={el.price_change_24h}
-        price_percentage_change_24h={el.price_percentage_change_24h}
-      />
-    ));
+    return (
+      <ScrollView contentContainerStyle={container}>
+        {crypto.data.map((el, idx) => (
+          <CoinCard
+            key={idx}
+            image={el.image}
+            name={el.name}
+            symbol={el.symbol}
+            current_price={el.current_price}
+            price_change_24h={el.price_change_24h}
+            price_change_percentage_24h={el.price_change_percentage_24h}
+          />
+        ))}
+      </ScrollView>
+    );
   };
 
-  return <View>{renderView()}</View>;
+  return renderView();
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 75
+  },
+});
+
+const { container } = styles;
 
 export default CryptoContainer;

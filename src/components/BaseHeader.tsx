@@ -12,11 +12,12 @@ const Header = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    marginTop: 55,
+    marginVertical: 25,
     alignItems: 'center',
   },
 
   header: {
+    // marginBottom: 25,
     fontWeight: 'bold',
     fontSize: 20,
   },
