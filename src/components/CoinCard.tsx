@@ -1,12 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
+import styles from "./styles/CoinCardStyles";
 
-const CoinCard = (props) => {
+type CoinCardProps = {
+  image: string;
+  symbol: string;
+  name: string;
+  current_price: number;
+  price_change_24h: number;
+  price_change_percentage_24h: number;
+}
+
+const CoinCard = (props: CoinCardProps) => {
   return (
     <View style={container}>
       <View style={infoContainer}>
         <Image style={image} source={{ uri: props.image }} />
-        <Text style={coinSymbol}>{props.symbol}</Text>
+        <Text style={coinSymbol}>{props.symbol.toUpperCase()}</Text>
         <Text style={seperator}>|</Text>
         <Text style={coinName}>{props.name}</Text>
         <Text style={coinPrice}>
@@ -45,73 +55,6 @@ const CoinCard = (props) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    marginBottom: 20,
-    borderBottomColor: '#e5e5e5',
-    borderBottomWidth: 3,
-    padding: 20,
-  },
-  infoContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginBottom: 15,
-  },
-  coinSymbol: {
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 5,
-    fontWeight: 'bold',
-  },
-  coinName: {
-    marginTop: 10,
-    marginLeft: 5,
-    marginRight: 20,
-  },
-  seperator: {
-    marginTop: 10,
-  },
-  coinPrice: {
-    marginTop: 10,
-    marginLeft: 'auto',
-    marginRight: 10,
-    fontWeight: 'bold',
-  },
-  image: {
-    width: 35,
-    height: 35,
-  },
-  moneySymbol: {
-    fontWeight: 'bold',
-  },
-  statisticsContainer: {
-    display: 'flex',
-    borderTopColor: '#FAFAFA',
-    borderTopWidth: 2,
-    padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  statisticsItem: {
-    display: "flex",
-    flexDirection: 'row',
-  },
-  statisticsMetric: {
-    marginRight: 1,
-  },
-  percentChangePlus: {
-    color: '#00BFA5',
-    fontWeight: 'bold',
-    marginLeft: 5,
-  },
-  percentChangeMinus: {
-    color: '#DD2C00',
-    fontWeight: 'bold',
-    marginLeft: 5,
-  },
-});
 
 const {
   container,

@@ -2,12 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
+
 import { useFetching } from '../utils/hooks';
 import fetchCoinData from '../actions/fetchCoinData';
+import RootState from '../types/RootState';
+
 import CoinCard from './CoinCard';
 
 const CryptoContainer = () => {
-  const crypto = useSelector((state) => state.crypto);
+  const crypto = useSelector((state: RootState) => state.crypto);
 
   useFetching(fetchCoinData);
 
@@ -55,7 +58,7 @@ const CryptoContainer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 75
+    paddingBottom: 75,
   },
 });
 
