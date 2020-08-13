@@ -1,4 +1,4 @@
-import ROI from "./ROI";
+import ROI from './ROI';
 
 export default interface Coin {
   ath: number;

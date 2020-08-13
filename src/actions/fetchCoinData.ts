@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { apiBaseURL } from '../utils/constants';
+import axiosService from '../utils/axiosService';
+
 import {
   FETCHING_COIN_DATA,
   FETCHING_COIN_DATA_SUCCESS,
@@ -10,10 +10,8 @@ const fetchCoinData = () => {
   return async (dispatch) => {
     dispatch({ type: FETCHING_COIN_DATA });
 
-    return axios
-      .get(
-        `${apiBaseURL}/coins/markets?vs_currency=usd&per_page=10`,
-      )
+    return axiosService
+      .get('/coins/markets?vs_currency=usd')
       .then((res) => {
         dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: res.data });
       })

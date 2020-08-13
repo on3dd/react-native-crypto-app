@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetching } from '../utils/hooks';
@@ -24,44 +24,49 @@ const CryptoContainer = () => {
 
   const renderSpinner = () => {
     return (
-      <View>
-        <Spinner
-          visible={crypto.isFetching}
-          textContent={'Loading'}
-          textStyle={{ color: '#253145' }}
-          animation="fade"
-        />
-      </View>
+      <Spinner
+        visible={crypto.isFetching}
+        textContent={'Loading'}
+        textStyle={{ color: '#253145' }}
+        animation="fade"
+      />
     );
   };
 
   const renderList = () => {
     return (
-      <ScrollView contentContainerStyle={container}>
-        {crypto.data.map((el, idx) => (
+      <FlatList
+        data={crypto.data}
+        contentContainerStyle={container}
+        renderItem={({ item }) => (
           <CoinCard
-            key={idx}
-            image={el.image}
-            name={el.name}
-            symbol={el.symbol}
-            current_price={el.current_price}
-            price_change_24h={el.price_change_24h}
-            price_change_percentage_24h={el.price_change_percentage_24h}
+            image={item.image}
+            name={item.name}
+            symbol={item.symbol}
+            current_price={item.current_price}
+            price_change_24h={item.price_change_24h}
+            price_change_percentage_24h={item.price_change_percentage_24h}
           />
-        ))}
-      </ScrollView>
+        )}
+        initialNumToRender={10}
+      ></FlatList>
     );
   };
 
-  return renderView();
+  return <View style={view}>{renderView()}</View>;
 };
 
 const styles = StyleSheet.create({
+  view: {
+    flexGrow: 1,
+  },
+
   container: {
-    paddingBottom: 75,
+    flexGrow: 1,
+    flexDirection: 'column',
   },
 });
 
-const { container } = styles;
+const { view, container } = styles;
 
 export default CryptoContainer;

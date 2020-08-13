@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
-import styles from "./styles/CoinCardStyles";
+import styles from './styles/CoinCardStyles';
 
 type CoinCardProps = {
   image: string;
   symbol: string;
   name: string;
   current_price: number;
-  price_change_24h: number;
-  price_change_percentage_24h: number;
-}
+  price_change_24h: number | null;
+  price_change_percentage_24h: number | null;
+};
 
 const CoinCard = (props: CoinCardProps) => {
   return (
@@ -29,26 +29,32 @@ const CoinCard = (props: CoinCardProps) => {
         <View style={statisticsItem}>
           <Text style={statisticsMetric}>24h, $:</Text>
           <Text
-            style={
+            style={[
+              percentChange,
               props.price_change_24h < 0
                 ? percentChangeMinus
-                : percentChangePlus
-            }
+                : percentChangePlus,
+            ]}
           >
-            {Math.round(props.price_change_24h * 100) / 100}
+            {props.price_change_24h
+              ? props.price_change_24h.toFixed(3)
+              : 'No data'}
           </Text>
         </View>
 
         <View style={statisticsItem}>
           <Text style={statisticsMetric}>24h, %:</Text>
           <Text
-            style={
+            style={[
+              percentChange,
               props.price_change_percentage_24h < 0
                 ? percentChangeMinus
-                : percentChangePlus
-            }
+                : percentChangePlus,
+            ]}
           >
-            {Math.round(props.price_change_percentage_24h * 100) / 100}
+            {props.price_change_percentage_24h
+              ? props.price_change_percentage_24h.toFixed(3)
+              : 'No data'}
           </Text>
         </View>
       </View>
@@ -68,6 +74,7 @@ const {
   statisticsItem,
   statisticsMetric,
   seperator,
+  percentChange,
   percentChangePlus,
   percentChangeMinus,
 } = styles;

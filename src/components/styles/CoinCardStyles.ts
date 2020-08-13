@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
   statisticsMetric: {
     marginRight: 1,
   },
+  percentChange: {
+    marginLeft: 5,
+  },
   percentChangePlus: {
     color: '#00BFA5',
     fontWeight: 'bold',

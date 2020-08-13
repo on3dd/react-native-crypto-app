@@ -4,8 +4,8 @@ import {
   FETCHING_COIN_DATA_FAIL,
 } from '../utils/actionTypes';
 
-import Action from "../types/Action";
-import CryptoState from "../types/CryptoState";
+import Action from '../types/Action';
+import CryptoState from '../types/CryptoState';
 
 const initialState: CryptoState = {
   isFetching: null,
@@ -19,7 +19,7 @@ const cryptoReducer = (state = initialState, action: Action) => {
     case FETCHING_COIN_DATA:
       return Object.assign({}, state, {
         isFetching: true,
-        data: null,
+        // data: null,
         hasError: false,
         errorMessage: null,
       });
@@ -27,7 +27,7 @@ const cryptoReducer = (state = initialState, action: Action) => {
     case FETCHING_COIN_DATA_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        data: action.payload,
+        data: [...state.data, ...action.payload],
         hasError: false,
         errorMessage: null,
       });
