@@ -1,6 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { View, FlatList, StyleSheet } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { View, FlatList, StyleSheet, RefreshControl } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetching } from '../utils/hooks';
@@ -10,6 +10,9 @@ import RootState from '../types/RootState';
 import CoinCard from './CoinCard';
 
 const CryptoContainer = () => {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const dispatch = useDispatch();
   const crypto = useSelector((state: RootState) => state.crypto);
 
   useFetching(fetchCoinData);
@@ -49,8 +52,19 @@ const CryptoContainer = () => {
           />
         )}
         initialNumToRender={10}
-      ></FlatList>
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      />
     );
+  };
+
+  const onRefresh = () => {
+    setRefreshing(true);
+
+    dispatch(fetchCoinData);
+
+    setRefreshing(false);
   };
 
   return <View style={view}>{renderView()}</View>;
