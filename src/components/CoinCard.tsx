@@ -37,7 +37,7 @@ const CoinCard = (props: CoinCardProps) => {
             ]}
           >
             {props.price_change_24h
-              ? props.price_change_24h.toFixed(3)
+              ? props.price_change_24h
               : 'No data'}
           </Text>
         </View>
@@ -53,7 +53,7 @@ const CoinCard = (props: CoinCardProps) => {
             ]}
           >
             {props.price_change_percentage_24h
-              ? props.price_change_percentage_24h.toFixed(3)
+              ? props.price_change_percentage_24h.toFixed(2)
               : 'No data'}
           </Text>
         </View>
