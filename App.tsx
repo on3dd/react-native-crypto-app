@@ -1,20 +1,29 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
-import { View } from 'react-native';
 import { Provider } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import store from './src/store';
 
-import BaseHeader from './src/components/BaseHeader';
-import BaseStatusBar from './src/components/BaseStatusBar';
-import CryptoContainer from './src/components/CryptoContainer';
+import HomeScreen from './src/screens/HomeScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+const screenOptions = {
+  headerShown: false,
+};
+
+const App = () => {
   return (
     <Provider store={store}>
-      <View>
-        <BaseStatusBar barStyle="light-content" />
-        <BaseHeader />
-        <CryptoContainer />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={screenOptions} initialRouteName="Home" >
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
-}
+};
+
+export default App;
