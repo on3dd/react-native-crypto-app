@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Header = () => {
+type HeaderProps = {
+  text?: string;
+};
+
+const BaseHeader = ({ text = 'Cryptocurrency App' }) => {
   return (
     <View style={container}>
-      <Text style={header}>Cryptocurrency App</Text>
+      <Text style={header}>{text}</Text>
     </View>
   );
 };
@@ -24,4 +28,4 @@ const styles = StyleSheet.create({
 
 const { container, header } = styles;
 
-export default Header;
+export default BaseHeader;

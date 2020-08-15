@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, FlatList, StyleSheet, RefreshControl } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
