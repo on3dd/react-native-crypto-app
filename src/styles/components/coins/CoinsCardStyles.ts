@@ -1,9 +1,15 @@
 import { StyleSheet } from 'react-native';
+import {
+  GRAY_C0LOR,
+  LIGHT_GRAY_COLOR,
+  RED_COLOR,
+  GREEN_COLOR,
+} from '../../colors';
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    borderBottomColor: '#e5e5e5',
+    borderBottomColor: GRAY_C0LOR,
     borderBottomWidth: 3,
     paddingVertical: 30,
     paddingHorizontal: 20,
@@ -42,7 +48,7 @@ const styles = StyleSheet.create({
   },
   statisticsContainer: {
     display: 'flex',
-    borderTopColor: '#eaeaea',
+    borderTopColor: LIGHT_GRAY_COLOR,
     borderTopWidth: 2,
     padding: 10,
     paddingBottom: 0,
@@ -60,12 +66,12 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   percentChangePlus: {
-    color: '#00BFA5',
+    color: RED_COLOR,
     fontWeight: 'bold',
     marginLeft: 5,
   },
   percentChangeMinus: {
-    color: '#DD2C00',
+    color: GREEN_COLOR,
     fontWeight: 'bold',
     marginLeft: 5,
   },

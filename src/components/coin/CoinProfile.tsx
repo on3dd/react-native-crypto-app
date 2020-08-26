@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 
 import Coin from '../../types/states/coin/Coin';
+import styles from '../../styles/components/coin/CoinProfileStyles';
 
 import BaseQuote from '../base-ui/BaseQuote';
 
@@ -27,7 +28,7 @@ const CoinProfile = ({ data }: CoinProfileProps) => {
           </View>
 
           <View style={right}>
-            <Text style={currentPrice}>
+            <Text style={currentPrice} numberOfLines={1}>
               ${data.market_data.current_price.usd.toFixed(3)}
             </Text>
 
@@ -72,95 +73,6 @@ const CoinProfile = ({ data }: CoinProfileProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    flexDirection: 'column',
-  },
-  scroll: {
-    paddingVertical: 30,
-    paddingHorizontal: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  left: {
-    flex: 2,
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    alignItems: 'center',
-  },
-  imageContainer: {
-    marginRight: 10,
-    borderRadius: 10,
-  },
-  image: {
-    height: 60,
-    width: 60,
-  },
-  info: {
-    flex: 1,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-  symbol: {
-    fontSize: 12,
-    fontWeight: '200',
-    color: '#666',
-  },
-  right: {
-    flex: 1,
-    alignItems: 'flex-end',
-  },
-  currentPrice: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  priceChange: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  priceChangePlus: {
-    color: '#00BFA5',
-  },
-  priceChangeMinus: {
-    color: '#DD2C00',
-  },
-  prices: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  priceContainer: {
-    flexDirection: 'column',
-  },
-  date: {
-    fontSize: 14,
-    color: '#666',
-  },
-  price: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  priceOpen: {
-    alignSelf: 'flex-start',
-  },
-  priceHigh: {
-    alignSelf: 'center',
-  },
-  priceLow: {
-    alignSelf: 'flex-end',
-  },
-  description: {
-    // marginBottom: 20,
-  },
-});
 
 const {
   container,

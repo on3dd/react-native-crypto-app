@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import styles from '../styles/CoinsCardStyles';
+import styles from '../../styles/components/coins/CoinsCardStyles';
 
 type CoinsCardProps = {
   id: string;
