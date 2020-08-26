@@ -18,8 +18,10 @@ const CoinProfile = ({ data }: CoinProfileProps) => {
             <View style={imageContainer}>
               <Image style={image} source={{ uri: data.image.large }} />
             </View>
-            <View>
-              <Text style={name}>{data.name}</Text>
+            <View style={info}>
+              <Text style={name} numberOfLines={1}>
+                {data.name}
+              </Text>
               <Text style={symbol}>{data.symbol.toUpperCase()}</Text>
             </View>
           </View>
@@ -87,8 +89,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   left: {
+    flex: 2,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
     alignItems: 'center',
   },
   imageContainer: {
@@ -98,6 +101,9 @@ const styles = StyleSheet.create({
   image: {
     height: 60,
     width: 60,
+  },
+  info: {
+    flex: 1,
   },
   name: {
     fontSize: 20,
@@ -109,6 +115,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   right: {
+    flex: 1,
     alignItems: 'flex-end',
   },
   currentPrice: {
@@ -151,7 +158,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   description: {
-    marginBottom: 20,
+    // marginBottom: 20,
   },
 });
 
@@ -162,6 +169,7 @@ const {
   left,
   image,
   imageContainer,
+  info,
   name,
   symbol,
   right,
