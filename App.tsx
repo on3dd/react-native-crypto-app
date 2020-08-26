@@ -12,6 +12,7 @@ import CoinScreen from './src/screens/CoinScreen';
 
 const Stack = createStackNavigator();
 const screenOptions = {
+  animationEnabled: false,
   headerShown: false,
 };
 
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={screenOptions} initialRouteName="Home" >
+        <Stack.Navigator screenOptions={screenOptions} initialRouteName="Home">
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Coin" component={CoinScreen} />
         </Stack.Navigator>

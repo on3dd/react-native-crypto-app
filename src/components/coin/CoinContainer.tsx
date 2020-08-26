@@ -8,22 +8,20 @@ import fetchCoin from '../../actions/fetchCoin';
 import ContainerProps from '../../types/ContainerProps';
 import RootState from '../../types/RootState';
 
+import CoinProfile from './CoinProfile';
+
 const CoinContainer = ({ route }: ContainerProps) => {
   const coin = useSelector((state: RootState) => state.coin);
   const condition = !coin.data || coin.data.id !== route.params.id;
 
-  useFetchingWithConditionAndArgs(
-    fetchCoin,
-    condition,
-    route.params.id,
-  );
+  useFetchingWithConditionAndArgs(fetchCoin, condition, route.params.id);
 
   const renderView = () => {
     if (coin.isFetching || condition) {
       return renderSpinner();
     }
 
-    return <Text>{!condition && coin.data.id}</Text>;
+    return <CoinProfile data={coin.data} />;
   };
 
   const renderSpinner = () => {
@@ -42,6 +40,7 @@ const CoinContainer = ({ route }: ContainerProps) => {
 
 const styles = StyleSheet.create({
   view: {
+    // height: '100%',
     flexGrow: 1,
   },
 });
