@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import store from './src/store';
 
 import HomeScreen from './src/screens/HomeScreen';
+import CoinScreen from './src/screens/CoinScreen';
 
 const Stack = createStackNavigator();
 const screenOptions = {
@@ -20,6 +21,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={screenOptions} initialRouteName="Home" >
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Coin" component={CoinScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

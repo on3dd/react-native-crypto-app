@@ -1,5 +1,7 @@
-import CryptoState from "./CryptoState";
+import CoinState from './states/coin';
+import CoinsState from './states/coins';
 
 export default interface RootState {
-  crypto: CryptoState;
+  coins: CoinsState;
+  coin: CoinState;
 }

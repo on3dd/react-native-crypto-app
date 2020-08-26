@@ -1,9 +1,10 @@
 import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
-import CryptoContainer from '../components/CryptoContainer';
+import CoinsContainer from '../components/home/CoinsContainer';
+import ScreenProps from '../types/ScreenProps';
 
-const HomeScreen = () => {
-  return <DefaultLayout component={CryptoContainer} />;
+const HomeScreen = (props: ScreenProps) => {
+  return <DefaultLayout component={CoinsContainer} {...props} />;
 };
 
 export default HomeScreen;

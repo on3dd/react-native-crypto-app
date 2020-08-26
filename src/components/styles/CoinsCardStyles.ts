@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    marginBottom: 20,
     borderBottomColor: '#e5e5e5',
     borderBottomWidth: 3,
-    padding: 20,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
   },
   infoContainer: {
     display: 'flex',
@@ -42,14 +42,15 @@ const styles = StyleSheet.create({
   },
   statisticsContainer: {
     display: 'flex',
-    borderTopColor: '#FAFAFA',
+    borderTopColor: '#eaeaea',
     borderTopWidth: 2,
     padding: 10,
+    paddingBottom: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   statisticsItem: {
-    display: "flex",
+    display: 'flex',
     flexDirection: 'row',
   },
   statisticsMetric: {

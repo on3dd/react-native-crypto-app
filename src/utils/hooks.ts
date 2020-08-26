@@ -8,3 +8,26 @@ export const useFetching = (someFetchActionCreator: () => void) => {
     dispatch(someFetchActionCreator());
   }, []);
 };
+
+export const useFetchingWithArgs = (
+  someFetchActionCreator: (...args: any[]) => void,
+  ...args: any[]
+) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(someFetchActionCreator(...args));
+  }, []);
+};
+
+export const useFetchingWithConditionAndArgs = (
+  someFetchActionCreator: (...args: any[]) => void,
+  condition: boolean,
+  ...args: any[]
+) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (condition) dispatch(someFetchActionCreator(...args));
+  }, []);
+};

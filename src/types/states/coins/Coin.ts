@@ -1,4 +1,8 @@
-import ROI from './ROI';
+interface ROI {
+  currency: string;
+  percentage: number;
+  times: number;
+}
 
 export default interface Coin {
   ath: number;

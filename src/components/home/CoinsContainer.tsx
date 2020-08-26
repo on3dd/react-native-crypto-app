@@ -3,22 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View, FlatList, StyleSheet, RefreshControl } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
-import { useFetching } from '../utils/hooks';
-import fetchCoinData from '../actions/fetchCoinData';
-import RootState from '../types/RootState';
+import { useFetching } from '../../utils/hooks';
+import fetchCoins from '../../actions/fetchCoins';
+import ContainerProps from '../../types/ContainerProps';
+import RootState from '../../types/RootState';
 
-import CoinCard from './CoinCard';
+import CoinsCard from './CoinsCard';
 
-const CryptoContainer = () => {
+const CoinsContainer = ({ navigation }: ContainerProps) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const dispatch = useDispatch();
-  const crypto = useSelector((state: RootState) => state.crypto);
+  const coins = useSelector((state: RootState) => state.coins);
 
-  useFetching(fetchCoinData);
+  useFetching(fetchCoins);
 
   const renderView = () => {
-    if (crypto.isFetching) {
+    if (coins.isFetching) {
       return renderSpinner();
     }
 
@@ -28,7 +29,7 @@ const CryptoContainer = () => {
   const renderSpinner = () => {
     return (
       <Spinner
-        visible={crypto.isFetching}
+        visible={coins.isFetching}
         textContent={'Loading'}
         textStyle={{ color: '#253145' }}
         animation="fade"
@@ -39,16 +40,18 @@ const CryptoContainer = () => {
   const renderList = () => {
     return (
       <FlatList
-        data={crypto.data}
+        data={coins.data}
         contentContainerStyle={container}
         renderItem={({ item }) => (
-          <CoinCard
+          <CoinsCard
+            id={item.id}
             image={item.image}
             name={item.name}
             symbol={item.symbol}
             current_price={item.current_price}
             price_change_24h={item.price_change_24h}
             price_change_percentage_24h={item.price_change_percentage_24h}
+            navigation={navigation}
           />
         )}
         initialNumToRender={10}
@@ -62,7 +65,7 @@ const CryptoContainer = () => {
   const onRefresh = () => {
     setRefreshing(true);
 
-    dispatch(fetchCoinData);
+    dispatch(fetchCoins);
 
     setRefreshing(false);
   };
@@ -72,7 +75,7 @@ const CryptoContainer = () => {
 
 const styles = StyleSheet.create({
   view: {
-    flexGrow: 1,
+    height: '100%',
   },
 
   container: {
@@ -83,4 +86,4 @@ const styles = StyleSheet.create({
 
 const { view, container } = styles;
 
-export default CryptoContainer;
+export default CoinsContainer;

@@ -5,7 +5,7 @@ type HeaderProps = {
   text?: string;
 };
 
-const BaseHeader = ({ text = 'Cryptocurrency App' }) => {
+const BaseHeader = ({ text = 'Cryptocurrency App' }: HeaderProps) => {
   return (
     <View style={container}>
       <Text style={header}>{text}</Text>
@@ -16,8 +16,10 @@ const BaseHeader = ({ text = 'Cryptocurrency App' }) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    marginVertical: 25,
+    paddingVertical: 25,
+    paddingHorizontal: 0,
     alignItems: 'center',
+    zIndex: 100,
   },
 
   header: {
