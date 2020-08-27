@@ -36,12 +36,12 @@ const CoinProfile = ({ data }: CoinProfileProps) => {
             <Text
               style={[
                 priceChange,
-                data.market_data.price_change_24h > 0
+                data.market_data.price_change_percentage_24h > 0
                   ? priceChangePlus
                   : priceChangeMinus,
               ]}
             >
-              {data.market_data.price_change_24h.toFixed(2)}%
+              {data.market_data.price_change_percentage_24h.toFixed(2)}%
             </Text>
           </View>
         </View>
