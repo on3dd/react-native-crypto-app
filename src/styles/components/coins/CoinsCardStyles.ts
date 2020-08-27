@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   image: {
-    marginLeft: 10,
     width: 35,
     height: 35,
   },
