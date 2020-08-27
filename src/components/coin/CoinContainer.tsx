@@ -5,12 +5,12 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetchingWithConditionAndArgs } from '../../utils/hooks';
 import fetchCoin from '../../actions/fetchCoin';
-import ContainerProps from '../../types/ContainerProps';
+import { CoinContainerProps } from '../../types/ContainerProps';
 import RootState from '../../types/RootState';
 
 import CoinProfile from './CoinProfile';
 
-const CoinContainer = ({ route }: ContainerProps) => {
+const CoinContainer = ({ route }: CoinContainerProps) => {
   const coin = useSelector((state: RootState) => state.coin);
   const condition = !coin.data || coin.data.id !== route.params.id;
 

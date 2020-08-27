@@ -1,5 +1,4 @@
-// TODO: add navigation props
-export default interface ContainerProps {
-  route?: any;
-  navigation?: any;
-}
+import { HomeScreenProps, CoinScreenProps } from './ScreenProps';
+
+export type CoinsContainerProps = HomeScreenProps;
+export type CoinContainerProps = CoinScreenProps;

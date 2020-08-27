@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   percentChangePlus: {
-    color: RED_COLOR,
+    color: GREEN_COLOR,
     fontWeight: 'bold',
     marginLeft: 5,
   },
   percentChangeMinus: {
-    color: GREEN_COLOR,
+    color: RED_COLOR,
     fontWeight: 'bold',
     marginLeft: 5,
   },

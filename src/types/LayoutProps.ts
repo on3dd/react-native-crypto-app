@@ -1,9 +1,10 @@
 import { ElementType } from 'react';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../types/Navigation';
 
-// TODO: app navigation types
-export default interface LayoutProps {
+type NavigationProps = StackScreenProps<RootStackParamList, 'Home' | 'Coin'>;
+
+export default interface LayoutProps extends NavigationProps {
   component: ElementType;
   heading?: string;
-  route?: any;
-  navigation?: any;
 }

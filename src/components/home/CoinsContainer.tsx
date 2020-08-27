@@ -5,12 +5,12 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetching } from '../../utils/hooks';
 import fetchCoins from '../../actions/fetchCoins';
-import ContainerProps from '../../types/ContainerProps';
+import { CoinsContainerProps } from '../../types/ContainerProps';
 import RootState from '../../types/RootState';
 
 import CoinsCard from './CoinsCard';
 
-const CoinsContainer = ({ navigation }: ContainerProps) => {
+const CoinsContainer = ({ navigation }: CoinsContainerProps) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const dispatch = useDispatch();
