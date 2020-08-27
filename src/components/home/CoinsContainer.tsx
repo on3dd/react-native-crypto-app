@@ -19,11 +19,7 @@ const CoinsContainer = ({ navigation }: ContainerProps) => {
   useFetching(fetchCoins);
 
   const renderView = () => {
-    if (coins.isFetching) {
-      return renderSpinner();
-    }
-
-    return renderList();
+    return coins.isFetching ? renderSpinner() : renderList();
   };
 
   const renderSpinner = () => {
@@ -41,6 +37,8 @@ const CoinsContainer = ({ navigation }: ContainerProps) => {
     return (
       <FlatList
         data={coins.data}
+        initialNumToRender={10}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={container}
         renderItem={({ item }) => (
           <CoinsCard
@@ -51,16 +49,17 @@ const CoinsContainer = ({ navigation }: ContainerProps) => {
             current_price={item.current_price}
             price_change_24h={item.price_change_24h}
             price_change_percentage_24h={item.price_change_percentage_24h}
-            navigation={navigation}
+            onPress={onPress}
           />
         )}
-        initialNumToRender={10}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       />
     );
   };
+
+  const onPress = (id: string) => navigation.navigate('Coin', { id });
 
   const onRefresh = () => {
     setRefreshing(true);

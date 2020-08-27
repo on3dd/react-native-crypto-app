@@ -10,14 +10,12 @@ type CoinsCardProps = {
   current_price: number;
   price_change_24h: number | null;
   price_change_percentage_24h: number | null;
-  navigation: any;
+  onPress: (id: string) => void;
 };
 
 const CoinsCard = (props: CoinsCardProps) => {
-  const onPress = () => props.navigation.navigate('Coin', { id: props.id })
-
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={() => props.onPress(props.id)}>
       <View style={container}>
         <View style={infoContainer}>
           <Image style={image} source={{ uri: props.image }} />

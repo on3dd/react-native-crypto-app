@@ -17,11 +17,7 @@ const CoinContainer = ({ route }: ContainerProps) => {
   useFetchingWithConditionAndArgs(fetchCoin, condition, route.params.id);
 
   const renderView = () => {
-    if (coin.isFetching || condition) {
-      return renderSpinner();
-    }
-
-    return <CoinProfile data={coin.data} />;
+    return coin.isFetching || condition ? renderSpinner() : renderProfile();
   };
 
   const renderSpinner = () => {
@@ -33,6 +29,10 @@ const CoinContainer = ({ route }: ContainerProps) => {
         animation="fade"
       />
     );
+  };
+
+  const renderProfile = () => {
+    return <CoinProfile data={coin.data} />;
   };
 
   return <View style={view}>{renderView()}</View>;
