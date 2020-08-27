@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { HomeScreenProps } from "../types/ScreenProps";
+import { HomeScreenProps } from '../types/ScreenProps';
 
-import DefaultLayout from '../layouts/DefaultLayout';
+import DefaultWithSideDrawerLayout from '../layouts/DefaultWithSideDrawerLayout';
 import CoinsContainer from '../components/home/CoinsContainer';
 
-
 const HomeScreen = (props: HomeScreenProps) => {
-  return <DefaultLayout component={CoinsContainer} {...props} />;
+  return <DefaultWithSideDrawerLayout component={CoinsContainer} {...props} />;
 };
 
 export default HomeScreen;

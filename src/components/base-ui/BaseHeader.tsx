@@ -15,10 +15,8 @@ const BaseHeader = ({ text = 'Cryptocurrency App' }: HeaderProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
     paddingVertical: 25,
-    paddingHorizontal: 0,
-    alignItems: 'center',
+    paddingHorizontal: 20,
     zIndex: 100,
   },
 

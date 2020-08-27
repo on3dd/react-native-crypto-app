@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderBottomColor: GRAY_C0LOR,
     borderBottomWidth: 3,
     paddingVertical: 30,
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
   },
   infoContainer: {
     display: 'flex',
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   image: {
+    marginLeft: 10,
     width: 35,
     height: 35,
   },
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   statisticsMetric: {
-    marginRight: 1,
+    // marginRight: 1,
   },
   percentChange: {
     marginLeft: 5,
@@ -68,12 +69,10 @@ const styles = StyleSheet.create({
   percentChangePlus: {
     color: GREEN_COLOR,
     fontWeight: 'bold',
-    marginLeft: 5,
   },
   percentChangeMinus: {
     color: RED_COLOR,
     fontWeight: 'bold',
-    marginLeft: 5,
   },
 });
 
