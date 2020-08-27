@@ -4,6 +4,7 @@ import { View, Text, Image, ScrollView } from 'react-native';
 import Coin from '../../types/states/coin/Coin';
 import styles from '../../styles/components/coin/CoinProfileStyles';
 
+import BaseChart from '../base-ui/BaseChart';
 import BaseQuote from '../base-ui/BaseQuote';
 
 type CoinProfileProps = {
@@ -66,6 +67,10 @@ const CoinProfile = ({ data }: CoinProfileProps) => {
           </View>
         </View>
 
+        <View style={chart}>
+          <BaseChart data={data.market_data.sparkline_7d.price} />
+        </View>
+
         <View style={description}>
           <BaseQuote text={data.description.en.replace(/(<([^>]+)>)/gi, '')} />
         </View>
@@ -96,6 +101,7 @@ const {
   priceOpen,
   priceHigh,
   priceLow,
+  chart,
   description,
 } = styles;
 

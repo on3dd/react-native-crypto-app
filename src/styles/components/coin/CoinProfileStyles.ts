@@ -1,9 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {
-  DARK_GRAY_COLOR,
-  RED_COLOR,
-  GREEN_COLOR,
-} from '../../colors';
+import { DARK_GRAY_COLOR, RED_COLOR, GREEN_COLOR } from '../../colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -73,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   date: {
-    fontSize: 14,
+    fontSize: 12,
     color: DARK_GRAY_COLOR,
   },
   price: {
@@ -88,6 +84,11 @@ const styles = StyleSheet.create({
   },
   priceLow: {
     alignSelf: 'flex-end',
+  },
+  chart: {
+    flex: 1,
+    height: 200,
+    marginBottom: 20,
   },
   description: {
     // marginBottom: 20,
