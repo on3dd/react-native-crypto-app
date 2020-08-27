@@ -40,7 +40,6 @@ const CoinContainer = ({ route }: ContainerProps) => {
 
 const styles = StyleSheet.create({
   view: {
-    // height: '100%',
     flexGrow: 1,
   },
 });

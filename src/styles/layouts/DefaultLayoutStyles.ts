@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { LIGHT_GRAY_COLOR } from '../colors';
+import { GRAY_C0LOR } from '../colors';
 
 const styles = StyleSheet.create({
   layout: {
     flexGrow: 1,
   },
   topBar: {
-    borderBottomColor: LIGHT_GRAY_COLOR,
+    borderBottomColor: GRAY_C0LOR,
     borderBottomWidth: 1,
   },
   container: {
