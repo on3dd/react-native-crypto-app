@@ -7,4 +7,5 @@ type NavigationProps = StackScreenProps<RootStackParamList, 'Home' | 'Coin'>;
 export default interface LayoutProps extends NavigationProps {
   component: ElementType;
   heading?: string;
+  icon?: string;
 }

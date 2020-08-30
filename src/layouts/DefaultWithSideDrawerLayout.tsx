@@ -26,7 +26,7 @@ const DefaultWithSideDrawerLayout = (props: LayoutProps) => {
   return (
     <View style={container}>
       <SideMenu menu={menu} isOpen={isVisible}>
-        <DefaultLayout {...props} />
+        <DefaultLayout icon="bars" {...props} />
       </SideMenu>
     </View>
   );

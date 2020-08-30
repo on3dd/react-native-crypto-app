@@ -13,7 +13,7 @@ const DefaultLayout = (props: LayoutProps) => {
     <View style={layout}>
       <View style={topBar}>
         <BaseStatusBar barStyle="dark-content" />
-        <BaseHeader text={props.heading} />
+        <BaseHeader text={props.heading} icon={props.icon} />
       </View>
 
       <View style={container}>
