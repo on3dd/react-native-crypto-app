@@ -8,12 +8,12 @@ import BaseHeader from '../components/base-ui/BaseHeader';
 import BaseStatusBar from '../components/base-ui/BaseStatusBar';
 
 const DefaultLayout = (props: LayoutProps) => {
-  const { component: Component, heading, ...navigation } = props;
+  const { component: Component, heading, icon, onPress, ...navigation } = props;
   return (
     <View style={layout}>
       <View style={topBar}>
         <BaseStatusBar barStyle="dark-content" />
-        <BaseHeader text={props.heading} icon={props.icon} />
+        <BaseHeader text={heading} icon={icon} onPress={onPress} />
       </View>
 
       <View style={container}>

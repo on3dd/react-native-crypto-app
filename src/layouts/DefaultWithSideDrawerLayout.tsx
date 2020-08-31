@@ -21,12 +21,17 @@ const Menu = () => (
 
 const DefaultWithSideDrawerLayout = (props: LayoutProps) => {
   const [isVisible, isVisibleChange] = useState(false);
-  const menu = <BaseSideDrawerMenu component={Menu} isVisible={isVisible} />;
+
+  const child = (
+    <BaseSideDrawerMenu component={Menu} isVisible={isVisible} />
+  );
+
+  const toggle = () => isVisibleChange(!isVisible);
 
   return (
     <View style={container}>
-      <SideMenu menu={menu} isOpen={isVisible}>
-        <DefaultLayout icon="bars" {...props} />
+      <SideMenu menu={child} isOpen={isVisible} onChange={toggle}>
+        <DefaultLayout icon="bars" onPress={toggle} {...props} />
       </SideMenu>
     </View>
   );

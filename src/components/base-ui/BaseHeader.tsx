@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-type HeaderProps = {
+import IconProps from '../../types/IconProps';
+
+import BaseIcon from './BaseIcon';
+
+interface HeaderProps extends IconProps {
   text?: string;
-  icon?: string;
-};
+}
 
 const BaseHeader = (props: HeaderProps) => {
   return (
     <View style={container}>
-      {props.icon && <FontAwesome5 style={icon} name={props.icon} />}
+      {props.icon && <BaseIcon icon={props.icon} onPress={props.onPress} />}
       <Text style={header}>{props.text || 'Cryptocurrency app'}</Text>
     </View>
   );
