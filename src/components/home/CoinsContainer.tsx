@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, FlatList, StyleSheet, RefreshControl } from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetching } from '../../utils/hooks';
 import fetchCoins from '../../actions/fetchCoins';
 import { CoinsContainerProps } from '../../types/ContainerProps';
 import RootState from '../../types/RootState';
 
+import BaseSpinner from '../base-ui/BaseSpinner';
 import CoinsCard from './CoinsCard';
 
 const CoinsContainer = ({ navigation }: CoinsContainerProps) => {
@@ -23,14 +23,7 @@ const CoinsContainer = ({ navigation }: CoinsContainerProps) => {
   };
 
   const renderSpinner = () => {
-    return (
-      <Spinner
-        visible={coins.isFetching}
-        textContent={'Loading'}
-        textStyle={{ color: '#253145' }}
-        animation="fade"
-      />
-    );
+    return <BaseSpinner visible={coins.isFetching} />;
   };
 
   const renderList = () => {

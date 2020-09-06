@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
 
 import { useFetchingWithConditionAndArgs } from '../../utils/hooks';
 import fetchCoin from '../../actions/fetchCoin';
 import { CoinContainerProps } from '../../types/ContainerProps';
 import RootState from '../../types/RootState';
 
+import BaseSpinner from '../base-ui/BaseSpinner';
 import CoinProfile from './CoinProfile';
 
 const CoinContainer = ({ route }: CoinContainerProps) => {
@@ -21,14 +21,7 @@ const CoinContainer = ({ route }: CoinContainerProps) => {
   };
 
   const renderSpinner = () => {
-    return (
-      <Spinner
-        visible={coin.isFetching}
-        textContent={'Loading'}
-        textStyle={{ color: '#253145' }}
-        animation="fade"
-      />
-    );
+    return <BaseSpinner visible={coin.isFetching} />;
   };
 
   const renderProfile = () => {
